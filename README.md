@@ -24,7 +24,7 @@ Move-Item $env:LOCALAPPDATA\nvim-data $env:LOCALAPPDATA\nvim-data.bak
 
 #### Clone repo
 ```pwsh
-git clone https://github.com/ariewhite/test $HOME\AppData\Local\nvim
+git clone https://github.com/ariewhite/nvim-config $HOME\AppData\Local\nvim
 ```
 #### Remove .git folder
 ```pwsh
