@@ -8,7 +8,7 @@ return{
   version = 'v1.7.0',
 
   opts = {
-    keymap = { preset = 'default' },
+    keymap = { preset = 'super-tab' },
     appearance = {
       nerd_font_variant = 'mono'
     },

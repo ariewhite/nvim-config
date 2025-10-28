@@ -28,5 +28,10 @@ vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
 vim.opt.showmode = false
+vim.opt.shell = "pwsh"
+vim.opt.shellcmdflag = "-NoLogo"
+vim.opt.shellquote = '"'
+vim.opt.shellxquote = ""
+
 
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])

@@ -1,5 +1,25 @@
 -- lua/config/lsp.lua
 
+local function switch_source_header(bufnr, client)
+  local method_name = 'textDocument/switchSourceHeader'
+  ---@diagnostic disable-next-line:param-type-mismatch
+  if not client or not client:supports_method(method_name) then
+    return vim.notify(('method %s is not supported by any servers active on the current buffer'):format(method_name))
+  end
+  local params = vim.lsp.util.make_text_document_params(bufnr)
+  ---@diagnostic disable-next-line:param-type-mismatch
+  client:request(method_name, params, function(err, result)
+    if err then
+      error(tostring(err))
+    end
+    if not result then
+      vim.notify('corresponding file cannot be determined')
+      return
+    end
+    vim.cmd.edit(vim.uri_to_fname(result))
+  end, bufnr)
+end
+
 vim.lsp.config("clangd", {
 --    capabilities = require("blink.cmp").get_lsp_capabilties(capabilities),
     on_attach = function(client, bufnr)
@@ -18,6 +38,16 @@ vim.lsp.config("clangd", {
 
         map("n", "[d", vim.diagnostic.goto_prev, "Prev diagnostic")
         map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
+        map("n", "<F4>", function()
+            switch_source_header(bufnr, client)
+        end, "Switch source/header")
+        map('n', '<leader>h', function()
+            switch_source_header(bufnr, client)
+        end, "switch_source_header")
+
+        vim.api.nvim_buf_create_user_command(bufnr, 'LspClangdSwitchSourceHeader', function()
+              switch_source_header(bufnr, client)
+        end, { desc = 'Switch between source/header' })
     end,
 })
 
@@ -32,3 +62,4 @@ vim.lsp.config("lua_ls", {
 
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("clangd")
+vim.lsp.enable("pylsp")
