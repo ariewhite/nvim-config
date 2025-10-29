@@ -30,3 +30,5 @@ require("config.lsp")
 
 require('lualine').setup()
 
+-- require("kanagawa").load("wave")
+vim.cmd.colorscheme("dark-orchid")
