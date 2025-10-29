@@ -27,7 +27,7 @@ local options = {
       enabled = false
     },
     neotree = {
-      enabled = false
+      enabled = true
     },
     nvim = {
       enabled = true

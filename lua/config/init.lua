@@ -11,8 +11,8 @@ if vim.g.neovide then
         return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
     end
 
-    vim.g.neovide_opacity = 0.87
-    vim.g.transparency = 0.65
+    -- vim.g.neovide_opacity = 0.87
+    vim.g.transparency = 1
     vim.g.neovide_background_color = "#ffffff" .. alpha()
     print("some one")
 
@@ -30,5 +30,4 @@ require("config.lsp")
 
 require('lualine').setup()
 
--- require("kanagawa").load("wave")
 vim.cmd.colorscheme("dark-orchid")
