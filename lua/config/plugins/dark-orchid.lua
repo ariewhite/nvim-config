@@ -27,19 +27,22 @@ local options = {
       enabled = false
     },
     neotree = {
-      enabled = true
+      enabled = false
     },
     nvim = {
       enabled = true
     },
     telescope = {
       enabled = false
+    },
+    nvimtree = {
+      enabled = true,
     }
   }
 }
 
 return {
-    "dark-orchid/neovim",
+    "ariewhite/dark-orchid",
     lazy = false,
     priority = 1000,
     config = function ()
