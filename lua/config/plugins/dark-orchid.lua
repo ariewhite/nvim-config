@@ -3,7 +3,7 @@
 local options = {
   integrations = {
     barbar = {
-      enabled = false
+      enabled = true
     },
     cmp = {
       enabled = false

@@ -28,4 +28,21 @@ keymap('n', '<C-l>', '<cmd>Lazy<CR>', options)
 -- keymap('n', '<leader>e<Right>', "<cmd>Neotree right<CR>", options)
 -- keymap('n', '<leader>e<Left>', "<cmd>Neotree left<CR>", options)
 -- keymap('n', '<leader>el', "<cmd>Neotree right<CR>", options)
--- keymap('n', '<leader>eh', "<cmd>Neotree left<CR>", options)
+-- keymap('n', '<leader>eh', "<cmd>Neotree left<CR>, options)
+
+-- barbar
+-- move to prev/next
+keymap('n', '<A-,>', '<cmd>BufferPrevious<CR>', options)
+keymap('n', '<A-.>', '<cmd>BufferNext<CR>', options)
+-- reorder to prev/next
+keymap('n', '<A-<>', '<cmd>BufferMovePrevious<CR>', options)
+keymap('n', '<A->>', '<cmd>BufferMoveNext<CR>', options)
+-- pin/unpin
+keymap('n', '<leader>bp', '<cmd>BufferPin<CR>', options)
+-- close
+keymap('n', '<leader>bw', '<cmd>BufferClose<CR>', options)
+-- disable/enable barbar
+keymap('n', '<leader>bd', '<cmd>BufferDisable<CR>', options)
+-- buffer save
+keymap('n', '<leader>bs', '<cmd>write<CR>', options)
+
